@@ -1,0 +1,24 @@
+ScrotWM
+-------
+
+A minimalistic tiling Window Manager for X11.
+See original source here,
+http://www.peereboom.us/scrotwm/html/scrotwm.html
+
+
+Debian GNU/Linux
+----------------
+
+To run this Window Manager under Debian GNU/Linux you need to compile and install it.
+This requires you to install some basic packages, which are
+
+  o build-essential
+  o libxrandr-dev
+  o libxt-dev
+
+Do this by invoking apt-get with the necessary packages as root user.
+If you still get file xyz missing errors, please use apt-file.
+(e.g. apt-file search Intrinsic.h)
+
+This is a "hacker orientated" Window Manager, so don't expect to much support.
+
