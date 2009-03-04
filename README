@@ -2,8 +2,23 @@ ScrotWM
 -------
 
 A minimalistic tiling Window Manager for X11.
-See original source here,
-http://www.peereboom.us/scrotwm/html/scrotwm.html
+
+Get the original sources here,
+  http://www.peereboom.us/scrotwm/html/scrotwm.html
+
+This checkout is from "Thu Mar  5 04:18:01 JST 2009".
+
+
+Compiling
+---------
+
+For BSD, use the supplied top level Makefile.
+
+  % make
+
+For GNU/Linux, use the supplied Makefile in the "linux" subdirectory and run again,..
+
+  % make
 
 
 Debian GNU/Linux
@@ -21,4 +36,11 @@ If you still get file xyz missing errors, please use apt-file.
 (e.g. apt-file search Intrinsic.h)
 
 This is a "hacker orientated" Window Manager, so don't expect to much support.
+
+
+License
+-------
+
+Any changes made here fall under the original authors License otherwise
+(c) 2009, Bjoern Rennhak
 
