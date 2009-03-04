@@ -12,19 +12,17 @@ This checkout is from "Thu Mar  5 04:18:01 JST 2009".
 Compiling
 ---------
 
+Normally you just need,..
+
+  % ./configure
+  % make clean all
+
+If you need a fresh start.
+
   % aclocal
   % automake --add-missing
   % autoconf
   % ./configure
-  % make
-
-
-For BSD, use the supplied top level Makefile.
-
-  % make
-
-For GNU/Linux, use the supplied Makefile in the "linux" subdirectory and run again,..
-
   % make
 
 
