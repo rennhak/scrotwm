@@ -12,6 +12,13 @@ This checkout is from "Thu Mar  5 04:18:01 JST 2009".
 Compiling
 ---------
 
+  % aclocal
+  % automake --add-missing
+  % autoconf
+  % ./configure
+  % make
+
+
 For BSD, use the supplied top level Makefile.
 
   % make

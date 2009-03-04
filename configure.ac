@@ -8,8 +8,13 @@
 
 AC_PREREQ([2.63])
 AC_INIT(scrotwm, 1.8, github@thewebagency.org)
-AC_CONFIG_SRCDIR([src/linux.c])
-AC_CONFIG_HEADERS([config.h])
+
+# Added for AutoMake
+AM_INIT_AUTOMAKE(pippo, 2.6)
+AC_OUTPUT(Makefile src/Makefile doc/Makefile examples/Makefile man/Makefile scripts/Makefile)
+
+#AC_CONFIG_SRCDIR([src/linux.c])
+#AC_CONFIG_HEADERS([config.h])
 
 # Checks for programs.
 AC_PROG_CC

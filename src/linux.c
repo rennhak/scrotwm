@@ -10,7 +10,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "util.h"
+#include "include/util.h"
 
 /*
  * All the workarounds for glibc stupidity are piled into this file...
