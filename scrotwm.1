@@ -1,0 +1,257 @@
+.\"	$scrotwm: scrotwm.1,v 1.19 2009/02/18 20:34:26 marco Exp $
+.\"
+.\" Copyright (c) 2009 Marco Peereboom <marco@peereboom.us>
+.\"
+.\" Permission to use, copy, modify, and distribute this software for any
+.\" purpose with or without fee is hereby granted, provided that the above
+.\" copyright notice and this permission notice appear in all copies.
+.\"
+.\" THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+.\" WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+.\" MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+.\" ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+.\" WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+.\" ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+.\" OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+.\"
+.Dd $Mdocdate: February 18 2009 $
+.Dt SCROTWM 1
+.Os
+.Sh NAME
+.Nm scrotwm
+.Nd window manager for X11
+.Sh SYNOPSIS
+.Nm scrotwm
+.Sh DESCRIPTION
+.Nm
+is a minimalistic window manager that tries to stay out of the way so that
+valuable screen real estate can be used for much more important stuff.
+It has sane defaults and does not require one to learn a language to do any
+configuration.
+It was written by hackers for hackers and it strives to be small, compact and
+fast.
+.Pp
+When
+.Nm
+starts up, it reads settings from its configuration file,
+.Pa scrotwm.conf .
+See the
+.Sx CONFIGURATION FILES
+section below.
+.Pp
+The following notation is used throughout this page:
+.Pp
+.Bl -tag -width Ds -offset indent -compact
+.It Cm M
+Meta
+.It Cm S
+Shift
+.It Aq Cm Name
+Named key
+.It Cm M1
+Mouse button 1
+.It Cm M3
+Mouse button 3
+.El
+.Pp
+.Nm
+is very simple in its use.
+Most of the actions are initiated via keybindings.
+The current keybindings are described below:
+.Pp
+.Bl -tag -width "M-j, M-<TAB>XXX" -offset indent -compact
+.It Cm M-S- Ns Aq Cm Return
+Spawn a new terminal
+.It Cm M-p
+Menu
+.It Cm M-S-q
+Quit
+.It Cm M-q
+Restart
+.Nm
+.It Cm M- Ns Aq Cm Space
+Cycle layout
+.It Cm M-S- Ns Aq Cm Space
+Reset layout
+.It Cm M-h
+Shrink master area
+.It Cm M-l
+Grow master area
+.It Cm M-,
+Add windows to master area
+.It Cm M-.
+Remove windows from master area
+.It Cm M-S-,
+Add columns/rows to stacking area
+.It Cm M-S-.
+Remove columns/rows from stacking area
+.It Cm M- Ns Aq Cm Return
+Move current window to master area
+.It Xo
+.Cm M-j ,
+.Cm M- Ns Aq Cm TAB
+.Xc
+Focus next window in workspace
+.It Xo
+.Cm M-k ,
+.Cm M-S- Ns Aq Cm TAB
+.Xc
+Focus previous window in workspace
+.It Cm M-m
+Focus on main window in workspace
+.It Cm M-S-j
+Swap with next window in workspace
+.It Cm M-S-k
+Swap with previous window in workspace
+.It Cm M-b
+Toggle status bar in all workspaces
+.It Cm M-x
+Delete current window in workspace
+.It Cm M-S-x
+Destroy current window in workspace
+.It Cm M- Ns Aq Ar n
+Switch to workspace
+.Ar n
+.It Cm M-S- Ns Aq Ar n
+Move current window to workspace
+.Ar n
+.It Cm M- Ns Aq Cm Right
+Switch to next workspace with a window in it
+.It Cm M- Ns Aq Cm Left
+Switch to previous workspace with a window in it
+.It Cm M-S- Ns Aq Cm Right
+Move pointer to next region
+.It Cm M-S- Ns Aq Cm Left
+Move pointer to previous region
+.It Cm M-s
+Take screenshot of entire screen (if enabled)
+.It Cm M-S-s
+Take screenshot of selected window (if enabled)
+.It Cm M-S-v
+Toggle version in status bar
+.It Cm M-t
+Toggle focused window between tiled and floating
+.It Cm M-S Aq Cm Delete
+Lock screen
+.It Cm M-S-i
+Reinitialize physical screens
+.It Cm M1
+Focus window
+.It Cm M-M1
+Move window
+.It Cm M-M3
+Resize window
+.It Cm M-S-M3
+Resize window while maintaining it centered
+.El
+.Sh CONFIGURATION FILES
+.Nm
+first tries to open the user specific file,
+.Pa ~/.scrotwm.conf .
+If that file is unavailable,
+it then tries to open the global configuration file
+.Pa /etc/scrotwm.conf .
+.Pp
+The format of the file is \*(Ltkeyword\*(Gt = \*(Ltsetting\*(Gt.
+For example:
+.Pp
+.Dl color_focus = red
+.Pp
+Enabling or disabling an option is done by using 1 or 0 respectively.
+.Pp
+The file supports the following keywords:
+.Pp
+.Bl -tag -width "screenshot_enabledXXX" -offset indent -compact
+.It Cm color_focus
+Border color of the currently focussed window.
+.It Cm color_unfocus
+Border color of unfocussed windows.
+.It Cm bar_enabled
+Enable or disable status bar.
+.It Cm bar_border Ns Bq Ar x
+Color of the status bar border in screen
+.Ar x .
+.It Cm bar_color Ns Bq Ar x
+Color of the status bar window in screen
+.Ar x .
+.It Cm bar_font_color Ns Bq Ar x
+Color of the font in status bar in screen
+.Ar x .
+.It Cm bar_font
+Status bar font.
+.It Cm bar_action
+External script that populates additional information in the status bar,
+such as battery life.
+.It Cm bar_delay
+Update frequency, in seconds, of external script that populates the status bar.
+.It Cm clock_enabled
+Enable or disable displaying the clock in the status bar.  Disable by
+setting to 0 so a custom clock could be used in the bar_action script.
+.It Cm spawn_term
+External application that gets spawned when
+.Cm M-S- Ns Aq Cm Return
+is used.
+.It Cm dialog_ratio
+Some applications have dialogue windows that are too small to be useful.
+This ratio is the screen size to what they will be resized.
+For example, 0.6 is 60% of the physical screen size.
+.It Cm region
+Allocates a custom region, removing any autodetected regions which occupy the same
+space on the screen.
+Defined in the format screen[<idx>]:WIDTHxHEIGHT+X+Y, e.g. screen[1]:800x1200+0+0.
+.It Cm screenshot_enabled
+Enable or disable screenshot capability.
+.It Cm screenshot_app
+Set to the script that will take screenshots.
+It will be called with "full" or "window" as parameter 1 to indicate what
+screenshot action is expected.
+The script shall handle those cases accordingly.
+.It Cm term_width
+Set a preferred minimum width for the terminal
+If this value is greater than 0,
+.Nm
+will attempt to adjust the font sizes in the terminal to keep the terminal
+width above this number as the window is resized.
+Only 
+.Xr xterm 1
+is currently supported.
+The
+.Xr xterm 1
+binary must not be setuid or setgid, which it is by default on most systems.
+Users may need to set spawn term to use an alternate copy of the
+.Xr xterm 1
+binary without the setgid bit set.
+.It Cm modkey
+Change mod key.
+Mod1 is generally the ALT key and Mod4 is the windows key on a PC.
+.El
+.Pp
+Colors need to be specified per the
+.Xr XQueryColor 3
+specification and fonts need to be specified per the
+.Xr XQueryFont 3
+specification.
+.Sh FILES
+.Bl -tag -width "/etc/scrotwm.confXXX" -compact
+.It Pa ~/.scrotwm.conf
+.Nm
+user specific settings.
+.It Pa /etc/scrotwm.conf
+.Nm
+global settings.
+.El
+.Sh HISTORY
+.Nm
+was inspired by xmonad & dwm.
+.Sh AUTHORS
+.An -nosplit
+.Pp
+.Nm
+was written by
+.An Marco Peereboom Aq marco@peereboom.us
+and
+.An Ryan Thomas McBride Aq mcbride@countersiege.com .
+.Sh BUGS
+Currently the menu, invoked with
+.Cm M-p ,
+depends on dmenu.
