@@ -62,7 +62,7 @@ static const char	*cvstag = "$scrotwm: scrotwm.c,v 1.163 2009/03/04 06:13:35 mcb
 #include <time.h>
 #include <signal.h>
 #include <string.h>
-#include <util.h>
+#include "include/util.h"
 #include <pwd.h>
 #include <ctype.h>
 
